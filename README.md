@@ -7,4 +7,7 @@ Don't change the name of the folder. Don't extract any file of the folder.
 It has 10 premade position configurations: 4 corners, two different mid position, mid right , mid left, top mid and bottom mid positions.
 
 
+Dependences:
+  -i3lock-colors
+
 Don't doubt contacting me if you have any suggest or idea of how to improve the code.
