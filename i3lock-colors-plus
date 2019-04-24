@@ -1,10 +1,8 @@
 #!/bin/bash 
 
 DIR="$(echo $PATH | tr \: \\n | grep i3lock-colors-plus)"
-POSITION=$1
-PCNAME="$(grep PCNAME $DIR/config | awk '{printf $NF}')"
 
-case "$POSITION" in
+case $1 in
 	"-topright" | "-tr" )
 		CIRCLEPOS="w-(2*r):((3/2)*r)"
 		TIMEPOS="ix-(2*r)+10:iy-(r/2)"
