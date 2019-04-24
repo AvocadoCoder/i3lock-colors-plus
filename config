@@ -1,0 +1,27 @@
+//configuration file for lock
+
+	BACKGROUND:	/home/german/Pictures/Wallpapers/LukeSmithWallpapers/Etc/starwarsdessert.png
+
+//circle color configurations
+	//inside
+		iVERIFYING:	00000000
+		iWRONG:		00000000
+		iSTANDARD:	00000000
+	//ring
+		rVERIFYING:	458588cc
+		rWRONG:		cc241dff
+		rSTANDARD:	d79921cc
+	//hl
+		hlKEY:		ebdbb2ff
+		hlBACKSPACE:	cc241dff		
+	//rest
+		SEPARATOR:	282828cc
+		LINE:		282828cc
+		VERIFYING:	ebdbb2ff
+		WRONG:		ebdbb2ff
+		LAYOUT:		ebdbb2ff
+
+//text colors
+	TIME:		ebdbb2ff
+	DATE:		ebdbb2ff
+	PCNAME:		ebdbb2ff

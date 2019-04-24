@@ -1,0 +1,55 @@
+i3lock-colors-plus
+
+Developed by German Quero Jimenez, based on Pandoras Fox i3lock-colors.
+It's just a simple code and config file that makes it easier to configure i3lock-colors.
+It has 10 premade position configurations: 4 corners, two different mid position, mid right , mid left, top mid and bottom mid positions.
+
+The config file it's just a text file, it has no sintax, the code just looks for the name of the variable is searching for and takes the value.
+Because of that, there are certain words that are restringed in the config file(being caps sensitive):
+	-iVERIFYING	
+	-iWRONG		
+	-iSTANDARD	
+	-rVERIFYING	
+	-rWRONG		
+	-rSTANDARD	
+	-hlKEY		
+	-hlBACKSPACE	       	
+	-SEPARATOR	
+	-LINE		
+	-VERIFYING	
+	-WRONG		
+	-LAYOUT		
+	-TIME		
+	-DATE		
+	-PCNAME	
+You can't also change the line of the value, it has to be in the same line. 
+
+
+*********************************************************************************************************************************************************
+*		**Explanation**																*
+*	It works with the grep fuction, looking for the respective name of the value and pasing it to awk, that prints the last block of the line:	*
+*	Example line of code: -image=$(grep BACKGROUND config | awk '{printf $NF}')									*
+*	It's made like that because it was the most legible and fast way I could think of, the config file is meant to be used just changing		*
+*	the values of color cand background. If you find a better way to do it don't doubt to contact with me.						*
+*********************************************************************************************************************************************************
+
+
+Flags:
+-topright / -tr:	for the top right corner
+-topleft / -tl:		for the top left corner
+-bottomright / -br:	for the bottom right corner
+-bottomleft / -bl:	for the bottom left corner
+-midright / -mr:	for the middle of the right part of the screen               			
+-midleft / -ml:		for the middle of the left part of the screen               			
+-topmid / -tm: 		for the middle of the top part of the screen
+-bottommid / -bm:	for the middle of the bottom part of the screen
+-mid / -m:		for the middle of the screen, it has two options:
+	-mid+ / -m+: 		it puts the date in the lower part of the circle	(default)
+	-mid- / -m-:		it puts the date in the upper part of the circle
+-help / -h: it shows the HELP.txt file (this)		(default)
+
+
+
+
+Hope it's usefull for you. GitHub: AvocadoCoder (link: https://github.com/AvocadoCoder)
+~Germán Quero Jimenez~   			                                  			

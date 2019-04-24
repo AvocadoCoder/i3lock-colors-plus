@@ -1,0 +1,91 @@
+#!/bin/bash 
+
+DIR="$(echo $PATH | tr \: \\n | grep i3lock-colors-plus)"
+POSITION=$1
+PCNAME="$(grep PCNAME $DIR/config | awk '{printf $NF}')"
+
+case "$POSITION" in
+	"-topright" | "-tr" )
+		CIRCLEPOS="w-(2*r):((3/2)*r)"
+		TIMEPOS="ix-(2*r)+10:iy-(r/2)"
+		DATEPOS="ix-(2*r)-40:iy-(r/2)+50" 
+		PCNAMEPOS="ix-(2*r)-10:iy-(r/2)+100"
+	       	SUCCEED=1
+		;;
+	"-topleft" | "-tl" )
+		CIRCLEPOS="(2*r):((3/2)*r)"
+		TIMEPOS="ix+(2*r)+10:iy-(r/2)"
+		DATEPOS="ix+(2*r)+40:iy-(r/2)+50" 
+		PCNAMEPOS="ix+(2*r)+10:iy-(r/2)+100" 
+	       	SUCCEED=1
+		;;
+	"-bottomright" | "-br" )
+		CIRCLEPOS="w-(2*r):h-((3/2)*r)"
+		TIMEPOS="ix-(2*r)+10:iy-(r/2)"
+		DATEPOS="ix-(2*r)-40:iy-(r/2)+50"
+		PCNAMEPOS="ix-(2*r)-10:iy-(r/2)+100"
+	       	SUCCEED=1
+		;;
+	"-bottomleft" | "-bl")
+		CIRCLEPOS="(2*r):h-((3/2)*r)"
+		TIMEPOS="ix+(2*r)+10:iy-(r/2)"
+		DATEPOS="ix+(2*r)+40:iy-(r/2)+50" 
+		PCNAMEPOS="ix+(2*r)+10:iy-(r/2)+100" 
+	       	SUCCEED=1
+		;;
+	"-midright" | "-mr" )
+		CIRCLEPOS="w-(2*r):h/2"
+		TIMEPOS="ix-(2*r)+10:iy-(r/2)"
+		DATEPOS="ix-(2*r)-40:iy-(r/2)+50"
+		PCNAMEPOS="ix-(2*r)-10:iy-(r/2)+100"
+	       	SUCCEED=1
+		;;
+	"-midleft" | "-ml" )
+       		CIRCLEPOS="(2*r):h/2"
+       		TIMEPOS="ix+(2*r)+10:iy-(r/2)"
+       		DATEPOS="ix+(2*r)+40:iy-(r/2)+50" 
+       		PCNAMEPOS="ix+(2*r)+10:iy-(r/2)+100" 
+	       	SUCCEED=1
+		;;
+	"-topmid" | "-tm" )
+		CIRCLEPOS="w/2:((3/2)*r)"
+		TIMEPOS="ix-(2*r):iy"
+		DATEPOS="ix:iy-(r/2)-75" 
+      		PCNAMEPOS="ix+(2*r):iy" 
+              	SUCCEED=1
+		;;
+	"-bottommid" | "-bm" )
+       		CIRCLEPOS="w/2:h-((3/2)*r)"
+       		TIMEPOS="ix-(2*r):iy"
+       		DATEPOS="ix:iy+(r/2)+75" 
+     		PCNAMEPOS="ix+(2*r):iy" 
+             	SUCCEED=1
+		;;
+	"-mid+" | "-m+" | "-m" | "-mid")
+      		CIRCLEPOS="w/2:h/2"
+      		TIMEPOS="ix-(2*r):iy"
+      		DATEPOS="ix:iy+(r/2)+75" 
+    		PCNAMEPOS="ix+(2*r):iy" 
+            	SUCCEED=1
+		;;
+	"-mid-" | "-m-")
+      		CIRCLEPOS="w/2:h/2"
+      		TIMEPOS="ix-(2*r):iy"
+      		DATEPOS="ix:iy-(r/2)-75" 
+    		PCNAMEPOS="ix+(2*r):iy" 
+            	SUCCEED=1
+		;;
+	"-help" | "-h" | *)
+	       	SUCCEED=0
+		;;	
+esac
+
+
+case "$SUCCEED" in
+	1)
+		i3lock --nofork --image=$(grep BACKGROUND $DIR/config | awk '{printf $NF}') --tiling --pointer=default --ignore-empty-password --show-failed-attempts --indicator  --force-clock --insidevercolor=$(grep iVERIFYING $DIR/config | awk '{printf $NF}') --insidewrongcolor=$(grep iWRONG $DIR/config | awk '{printf $NF}') --insidecolor=$(grep iSTANDARD $DIR/config | awk '{printf $NF}') --ringvercolor=$(grep rVERIFYING $DIR/config | awk '{printf $NF}') --ringwrongcolor=$(grep rWRONG $DIR/config | awk '{printf $NF}') --ringcolor=$(grep rSTANDARD $DIR/config | awk '{printf $NF}') --linecolor=$(grep LINE $DIR/config | awk '{printf $NF}') --keyhlcolor=$(grep hlKEY $DIR/config | awk '{printf $NF}') --bshlcolor=$(grep hlBACKSPACE $DIR/config | awk '{printf $NF}') --separatorcolor=$(grep SEPARATOR $DIR/config | awk '{printf $NF}') --verifcolor=ebdbb2ff --wrongcolor=ebdbb2ff  --layoutcolor=$(grep LAYOUT $DIR/config | awk '{printf $NF}') --indpos=$CIRCLEPOS --timecolor=$(grep TIME $DIR/config | awk '{printf $NF}') --timestr="%T" --timepos=$TIMEPOS --datecolor=$(grep DATE $DIR/config | awk '{printf $NF}') --datestr="%a, %d of %B of %Y" --datepos=$DATEPOS --datesize=15 --greetertext=$(uname -n) --greetercolor=$(grep PCNAME $DIR/config | awk '{printf $NF}') --greeterpos=$PCNAMEPOS --greetersize=25 --veriftext="Logging..." --wrongtext="Failed" --locktext="Locking..." --lockfailedtext="error"
+		;;
+	0 | *)
+		less $DIR/HELP.txt
+		;;
+esac
