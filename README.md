@@ -1,6 +1,6 @@
 # i3lock-colors-plus
-It's and advanced version of the PandorasFox's i3lock-colors, a simple code and config file that makes it easier to configure and use.
-
+Developed by German Quero Jimenez, based on Pandoras Fox i3lock-colors.
+It's just a simple code and config file that makes it easier to configure and use i3lock-colors.
 
 Just clone it and include it into your $PATH, keep all archives in the "i3lock-colors-plus" folder for the code to work.
 Don't change the name of the folder. Don't extract any file of the folder.
