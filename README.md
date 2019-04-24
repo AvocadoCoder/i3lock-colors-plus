@@ -6,6 +6,9 @@ Just clone it and include it into your $PATH, keep all archives in the "i3lock-c
 Don't change the name of the folder. Don't extract any file of the folder.
 It has 10 premade position configurations: 4 corners, two different mid position, mid right , mid left, top mid and bottom mid positions.
 
+I suggest using:
+alias lock='i3lock-colors-plus' for an easier usage.
+
 
 Dependences:
   -i3lock-colors
